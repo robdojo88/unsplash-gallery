@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import CardImage from '../components/CardImage';
+import { collections } from '../data/collections';
+import { categories } from '../data/categories';
 
 function GalleryLayout() {
     const API_URL = 'https://api.unsplash.com/search/photos';
@@ -13,39 +15,6 @@ function GalleryLayout() {
     const [isLoading, setIsLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const inputRef = useRef(null);
-
-    const categories = [
-        'Student & School',
-        'Technology',
-        'Architecture',
-        'Nature',
-        'Food',
-        'Travel',
-        'Minimal',
-        'Fitness',
-    ];
-    const collections = [
-        {
-            title: 'Calm Study',
-            description: 'Focus-friendly desks, books, and soft light.',
-            query: 'study desk minimal',
-        },
-        {
-            title: 'Smart Work',
-            description: 'Modern tech, product shots, and sleek setups.',
-            query: 'technology workspace',
-        },
-        {
-            title: 'Urban Lines',
-            description: 'Clean architecture with sharp geometry.',
-            query: 'modern architecture facade',
-        },
-        {
-            title: 'Green Escape',
-            description: 'Nature scenes to reset the mood.',
-            query: 'forest landscape',
-        },
-    ];
 
     const pageNumbers = (() => {
         const maxButtons = 5;
