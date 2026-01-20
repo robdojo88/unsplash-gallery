@@ -1,5 +1,5 @@
 import './App.css';
-import GalleryLayout from './layouts/gallery/GalleryLayout';
+import GalleryLayout from './layouts/GalleryLayout';
 
 function App() {
     return (
