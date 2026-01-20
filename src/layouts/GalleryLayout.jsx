@@ -55,8 +55,8 @@ function GalleryLayout() {
         return Array.from({ length: end - start + 1 }, (_, idx) => start + idx);
     })();
 
-    const handleSearch = async (page = 1) => {
-        if (!query) return;
+    const handleSearch = async (page = 1, searchQuery = query) => {
+        if (!searchQuery) return;
 
         try {
             setIsLoading(true);
@@ -66,7 +66,7 @@ function GalleryLayout() {
                     Authorization: `Client-ID ${import.meta.env.VITE_UNSPLASH_API_KEY}`,
                 },
                 params: {
-                    query,
+                    query: searchQuery,
                     page,
                     per_page: IMAGES_PER_PAGE,
                 },
@@ -126,7 +126,7 @@ function GalleryLayout() {
                             key={category}
                             onClick={() => {
                                 setQuery(category);
-                                handleSearch(1);
+                                handleSearch(1, category);
                             }}
                             className={`rounded-full border px-4 py-2 text-xs font-semibold transition ${
                                 category === query
@@ -196,7 +196,7 @@ function GalleryLayout() {
                             key={collection.title}
                             onClick={() => {
                                 setQuery(collection.query);
-                                handleSearch(1);
+                                handleSearch(1, collection.query);
                             }}
                             className='group rounded-2xl border border-white/10 bg-white/5 p-4 text-left text-sm text-slate-200 transition hover:-translate-y-1 hover:border-emerald-300/60'
                         >
