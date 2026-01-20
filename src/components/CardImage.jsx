@@ -11,7 +11,7 @@ function CardImage({ images }) {
                         alt={img.alt_description}
                         className='h-56 w-full object-cover transition duration-500 group-hover:scale-105'
                     />
-                    <div className='absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/10 to-transparent opacity-0 transition group-hover:opacity-100' />
+                    <div className='absolute inset-0 bg-linear-to-t from-slate-950/90 via-slate-950/10 to-transparent opacity-0 transition group-hover:opacity-100' />
                     <div className='absolute bottom-0 left-0 right-0 p-4 text-xs text-slate-200 opacity-0 transition group-hover:opacity-100'>
                         {img.alt_description || 'Untitled'}
                     </div>
